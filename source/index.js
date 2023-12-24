@@ -35,6 +35,10 @@ function loadDcMetadata (json, metadata) {
 }
 
 function rewriteMetaElements (json) {
+	if (!Array.isArray(json.package.metadata.meta)) {
+		console.dir(json.package.metadata.meta)
+		return
+	}
 	json.package.metadata.meta.forEach(function (meta) {
 		json.package.metadata['dc$' + meta.name] = meta.content
 	})
