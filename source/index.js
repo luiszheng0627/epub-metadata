@@ -94,6 +94,7 @@ module.exports = function (epubPath) {
 				metadata.identifier = [metadata.identifier]
 
 			metadata.identifier.forEach(function (identifier) {
+				if (!identifier.scheme) return
 				metadata[identifier.scheme.toLowerCase()] = identifier.text
 			})
 
